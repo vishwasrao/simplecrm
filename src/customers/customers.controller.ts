@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 
 @Controller('customers')
@@ -6,8 +6,13 @@ export class CustomersController {
   constructor(private customerServices: CustomersService) {}
 
   @Get()
-  getCustomers() {
-    return this.customerServices.getCustomers();
+  getAllCustomers() {
+    return this.customerServices.getAllCustomers();
+  }
+
+  @Get(':id')
+  findCustomer(@Param('id') id: string) {
+    return this.customerServices.findCustomer(id);
   }
 
   @Post()

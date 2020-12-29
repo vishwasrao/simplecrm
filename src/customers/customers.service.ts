@@ -5,8 +5,12 @@ import { v4 as uuidv4 } from 'uuid';
 export class CustomersService {
   private customers = [];
 
-  getCustomers() {
+  getAllCustomers() {
     return this.customers;
+  }
+
+  findCustomer(id: string) {
+    return this.customers.filter((d) => d.id === id);
   }
 
   createCustomer(firstName: string, lastName: string, email: string) {
