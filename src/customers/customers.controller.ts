@@ -11,8 +11,8 @@ export class CustomersController {
   }
 
   @Get(':id')
-  findCustomer(@Param('id') id: string) {
-    return this.customerServices.findCustomer(id);
+  getCustomerById(@Param('id') id: string) {
+    return this.customerServices.getCustomerById(id);
   }
 
   @Post()

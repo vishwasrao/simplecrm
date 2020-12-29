@@ -9,7 +9,7 @@ export class CustomersService {
     return this.customers;
   }
 
-  findCustomer(id: string) {
+  getCustomerById(id: string) {
     return this.customers.filter((d) => d.id === id);
   }
 
