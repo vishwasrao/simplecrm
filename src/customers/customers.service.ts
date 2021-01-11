@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
+import { CreateCustomerDto } from './dto/create-customer.dto';
 
 @Injectable()
 export class CustomersService {
@@ -13,15 +14,16 @@ export class CustomersService {
     return this.customers.filter((d) => d.id === id);
   }
 
-  createCustomer(firstName: string, lastName: string, email: string) {
+  createCustomer(createCustomerDto: CreateCustomerDto) {
+    const { firstName, lastName, email, phoneNumber } = createCustomerDto;
+
     const customerObject = {
       id: uuidv4(),
       firstName: firstName,
       lastName: lastName,
       email: email,
+      phoneNumber: phoneNumber,
     };
-    this.customers.push(customerObject);
-
-    return this.customers.push();
+    return this.customers.push(customerObject);
   }
 }
